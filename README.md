@@ -68,3 +68,7 @@ The following Unit Tests have been successfully executed
 
 To run the tests import the Maven project in the IDE (Eclipse, Spring Boot)
 Click on the Test and Run as JUnit Test
+In the command propmt execute:
+mvn test
+
+Docker tag used: docker run -p 80:80 ramsantoshtk/hr-reservation:new
