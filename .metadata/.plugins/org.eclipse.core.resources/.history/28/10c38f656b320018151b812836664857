@@ -1,0 +1,108 @@
+package com.solution.keypr.domain;
+
+import java.util.Date;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+/**
+ * @author RAM
+ *
+ */
+
+public class Reservation implements Identifiable {
+
+	private Long rid;
+	@NotNull
+    @NotBlank
+	private String gFullName;
+	
+	private String Rstatus;
+
+	private Date checkinDate;
+
+	private Date checkoutDate;
+
+	@Override
+	@Valid
+
+	public Long getId() {
+		
+		return rid;
+	}
+
+	@Override
+	public void setId(Long rid) {
+		
+		this.rid = rid;
+
+	}
+	@Valid
+	public String getgFullName() {
+		
+		return gFullName;
+	
+	}
+
+	public void setgFullName(String gFullName) {
+		this.gFullName = gFullName;
+	}
+
+	/**
+	 * @return the checkinDate
+	 */
+	@Valid
+	public  Date getCheckinDate() {
+		return checkinDate;
+	}
+
+	/**
+	 * @param checkinDate the checkinDate to set
+	 */
+	public void setCheckinDate(Date checkinDate) {
+		this.checkinDate = checkinDate;
+	}
+
+	/**
+	 * @return the checkoutDate
+	 */
+	@Valid
+	public Date getCheckoutDate() {
+		 
+		return checkoutDate;
+	}
+
+	/**
+	 * @param checkoutDate the checkoutDate to set
+	 */
+	public void setCheckoutDate(Date checkoutDate) {
+		this.checkoutDate = checkoutDate;
+	}
+	
+	public void setRStatus(String Rstatus) {
+		
+		this.Rstatus = Rstatus;
+	}
+		
+	public String Rstatus() {
+		Date cdate = new Date();
+		
+		if (cdate.before(checkinDate))
+		{ 
+			Rstatus = "Future_Reservation";
+		}
+		else if (cdate.after(checkinDate) && cdate.before(checkoutDate))
+		{ 
+			Rstatus = "Checked_In";
+		}
+		else if (cdate.after(checkinDate) && cdate.after(checkoutDate))
+		{
+			Rstatus = "Checked_Out";
+		}
+		return Rstatus;
+	}
+
+	
+
+}

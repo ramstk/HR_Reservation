@@ -1,0 +1,29 @@
+package com.solution.keypr.test.util;
+import org.junit.Assert;
+
+import com.solution.keypr.domain.Reservation;
+
+public class ReservationTestUtil {
+	public static void assertAllButIdsMatchBetweenOReservations(Reservation expected, Reservation actual) {
+    	Assert.assertEquals(expected.getgFullName(), actual.getgFullName());
+    	Assert.assertEquals(expected.getCheckinDate(), actual.getCheckinDate());
+    	Assert.assertEquals(expected.getCheckoutDate(), actual.getCheckoutDate());
+    }
+	
+    public static Reservation generateTestReservation() {
+    	Reservation reserve = new Reservation();
+    	reserve.setgFullName("test name");
+    	reserve.setCheckinDate("2018-12-12");
+    	reserve.setCheckoutDate("2018-12-12");
+    	return reserve;
+    }
+    
+     public static Reservation generateUpdatedReservation(Reservation original) {
+    	 Reservation updated = new Reservation();
+    	updated.setgFullName(original.getgFullName() + " updated");
+    	updated.setCheckinDate("20181212");
+    	updated.setCheckoutDate("2018-11-12");
+    	return updated;
+    }
+
+}

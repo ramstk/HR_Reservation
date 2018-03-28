@@ -1,0 +1,87 @@
+package com.solution.keypr.domain;
+
+import java.util.Date;
+
+/**
+ * @author RAM
+ *
+ */
+
+public class Reservation implements Identifiable {
+//	public enum status {
+//		Future_Reservation, Checked_In, Checked_Out
+//	}
+	private Long rid;
+	private String gFullName;
+	//private status Rstatus;
+	private Date checkinDate;
+	private Date checkoutDate;
+	
+	
+
+	@Override
+	public Long getId() {
+		// TODO Auto-generated method stub
+		return rid;
+	}
+
+	@Override
+	public void setId(Long rid) {
+		// TODO Auto-generated method stub
+		this.rid = rid;
+
+	}
+
+	public String getgFullName() {
+		return gFullName;
+	}
+
+	public void setgFullName(String gFullName) {
+		this.gFullName = gFullName;
+	}
+
+	/**
+	 * @return the checkinDate
+	 */
+	public Date getCheckinDate() {
+		return checkinDate;
+	}
+
+	/**
+	 * @param checkinDate the checkinDate to set
+	 */
+	public void setCheckinDate(Date checkinDate) {
+		this.checkinDate = checkinDate;
+	}
+
+	/**
+	 * @return the checkoutDate
+	 */
+	public Date getCheckoutDate() {
+		return checkoutDate;
+	}
+
+	/**
+	 * @param checkoutDate the checkoutDate to set
+	 */
+	public void setCheckoutDate(Date checkoutDate) {
+		this.checkoutDate = checkoutDate;
+	}
+
+//	/**
+//	 * @return the rstatus
+//	 */
+//	public status getRstatus() {
+//		return Rstatus;
+//	}
+//
+//	/**
+//	 * @param rstatus the rstatus to set
+//	 */
+//	public void setRstatus(status rstatus) {
+//		Rstatus = rstatus;
+//	}
+
+	
+
+}

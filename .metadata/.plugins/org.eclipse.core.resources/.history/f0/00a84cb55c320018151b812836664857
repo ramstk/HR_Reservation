@@ -1,0 +1,95 @@
+package com.solution.keypr.domain;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+/**
+ * @author RAM
+ *
+ */
+
+public class Reservation implements Identifiable {
+
+	private Long rid;
+	private String gFullName;
+	private String Rstatus;
+	private Date checkinDate;
+	private Date checkoutDate;
+	SimpleDateFormat ft = new SimpleDateFormat ("MM/dd/yyyy");
+
+	@Override
+	public Long getId() {
+		
+		return rid;
+	}
+
+	@Override
+	public void setId(Long rid) {
+		
+		this.rid = rid;
+
+	}
+
+	public String getgFullName() {
+		return gFullName;
+	}
+
+	public void setgFullName(String gFullName) {
+		this.gFullName = gFullName;
+	}
+
+	/**
+	 * @return the checkinDate
+	 */
+	public  String getCheckinDate() {
+		return ft.format(checkinDate);
+	}
+
+	/**
+	 * @param checkinDate the checkinDate to set
+	 */
+	public void setCheckinDate(Date checkinDate) {
+		this.checkinDate = checkinDate;
+	}
+
+	/**
+	 * @return the checkoutDate
+	 */
+	public String getCheckoutDate() {
+		 
+		return ft.format(checkoutDate);
+	}
+
+	/**
+	 * @param checkoutDate the checkoutDate to set
+	 */
+	public void setCheckoutDate(Date checkoutDate) {
+		this.checkoutDate = checkoutDate;
+	}
+	
+	public void setRStatus(String Rstatus) {
+		
+		this.Rstatus = Rstatus;
+	}
+		
+	public String Rstatus() {
+		Date cdate = new Date();
+		
+		if (cdate.before(checkinDate))
+		{ 
+			Rstatus = "Future_Reservation";
+		}
+		else if (cdate.after(checkinDate) && cdate.before(checkoutDate))
+		{ 
+			Rstatus = "Checked_In";
+		}
+		else if (cdate.after(checkinDate) && cdate.after(checkoutDate))
+		{
+			Rstatus = "Checked_Out";
+		}
+		return Rstatus;
+	}
+
+	
+
+}

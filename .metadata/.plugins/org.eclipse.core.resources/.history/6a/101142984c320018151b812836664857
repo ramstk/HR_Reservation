@@ -1,0 +1,117 @@
+package com.solution.keypr.domain;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+/**
+ * @author RAM
+ *
+ */
+
+public class Reservation implements Identifiable {
+//	public enum status {
+//		Future_Reservation, Checked_In, Checked_Out
+//	}
+	private Long rid;
+	private String gFullName;
+	private String Rstatus;
+	private Date checkinDate;
+	private Date checkoutDate;
+	
+	
+
+	@Override
+	public Long getId() {
+		
+		return rid;
+	}
+
+	@Override
+	public void setId(Long rid) {
+		
+		this.rid = rid;
+
+	}
+
+	public String getgFullName() {
+		return gFullName;
+	}
+
+	public void setgFullName(String gFullName) {
+		this.gFullName = gFullName;
+	}
+
+	/**
+	 * @return the checkinDate
+	 */
+	public  Date getCheckinDate() {
+		return checkinDate;
+	}
+
+	/**
+	 * @param checkinDate the checkinDate to set
+	 */
+	public void setCheckinDate(Date checkinDate) {
+		this.checkinDate = checkinDate;
+	}
+
+	/**
+	 * @return the checkoutDate
+	 */
+	public Date getCheckoutDate() {
+		return checkoutDate;
+	}
+
+	/**
+	 * @param checkoutDate the checkoutDate to set
+	 */
+	public void setCheckoutDate(Date checkoutDate) {
+		this.checkoutDate = checkoutDate;
+	}
+	
+	public void setRStatus(String Rstatus) {
+		
+		this.Rstatus = Rstatus;
+	}
+	
+	public void markFuture() {
+		setRStatus("Future_Reservation");
+	}
+	
+	public void markCheckedOut() {
+		setRStatus("Checked_Out");
+	}
+	public void markCheckedIn() {
+		setRStatus("Checked_In");
+	}
+	
+	public String Rstatus() {
+		Date cdate = new Date();
+		
+		if (cdate.before(checkinDate))
+		{ markFuture();
+			}
+		else if (cdate.after(checkinDate) && cdate.before(checkoutDate))
+		{ markCheckedIn();
+		}
+		else if (cdate.after(checkinDate) && cdate.after(checkoutDate))
+		{ markCheckedOut();
+		}
+		return Rstatus;
+	}
+//	/**
+//	 * @return the rstatus
+//	 */
+//	public String getRstatus() {
+//		return Rstatus;
+//	}
+//
+//	/**
+//	 * @param rstatus the rstatus to set
+//	 */
+//	public void setRstatus(String rstatus) {
+//		Rstatus = rstatus;
+//	}
+	
+
+}

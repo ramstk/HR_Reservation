@@ -1,0 +1,16 @@
+/**
+ * 
+ */
+package com.solution.keypr.repository;
+
+import com.solution.keypr.domain.Identifiable;
+
+/**
+ * @author RAM
+ *
+ */
+public abstract class DataRep <T extends Identifiable> {
+
+	
+
+}

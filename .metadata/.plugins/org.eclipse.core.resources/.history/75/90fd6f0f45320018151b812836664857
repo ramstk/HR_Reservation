@@ -1,0 +1,23 @@
+/**
+ * 
+ */
+package com.solution.keypr.resource;
+
+import com.solution.keypr.domain.Reservation;
+
+/**
+ * @author RAM
+ *
+ */
+public class ReservationResourceAssembler extends ResourceAssembler<Reservation, ReservationResource> {
+	public enum status {
+		Future_Reservation, Checked_In, Checked_Out
+	}
+
+	@Override
+	public ReservationResource toResource(Reservation reservation) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

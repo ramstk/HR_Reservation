@@ -1,0 +1,24 @@
+/**
+ * 
+ */
+package com.solution.keypr.repository;
+import java.util.concurrent.atomic.AtomicLong;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+
+/**
+ * @author RAM
+ *
+ */
+@Component
+@Scope(BeanDefinition.SCOPE_PROTOTYPE)
+public class UniIDGenerator {
+
+private AtomicLong nextId = new AtomicLong(1);
+	
+	public long getNextId() {
+		return nextId.getAndIncrement();
+	}
+}

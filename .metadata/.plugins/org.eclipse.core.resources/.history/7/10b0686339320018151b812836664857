@@ -1,0 +1,15 @@
+/**
+ * 
+ */
+package com.solution.keypr.repository;
+
+import com.solution.keypr.domain.Reservation;
+
+/**
+ * @author RAM
+ *
+ */
+@Repository
+public class ReservationRepo extends DataRepository <Reservation> {
+
+}

@@ -1,0 +1,35 @@
+/**
+ * Presentation layer
+ */
+package com.solution.keypr.resource;
+
+import java.util.Date;
+
+import org.springframework.hateoas.ResourceSupport;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.solution.keypr.domain.Reservation;
+
+/**
+ * @author RAM
+ *
+ */
+public class ReservationResource extends ResourceSupport{
+	private final long rid;
+	private final String gFullName;
+	private final Date checkinDate;
+	private final Date checkoutDate;
+	
+	public ReservationResource (Reservation reservation) {
+		rid = reservation.getId();
+		gFullName = reservation.getgFullName();
+		checkinDate = reservation.getCheckinDate();
+		checkoutDate = reservation.getCheckoutDate();		
+	}
+	
+	@JsonProperty("id")
+	public Long getResourceId() {
+		return rid;
+	}
+
+}

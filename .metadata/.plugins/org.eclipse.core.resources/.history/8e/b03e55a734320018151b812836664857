@@ -1,0 +1,32 @@
+/**
+ * 
+ */
+package com.solution.keypr.repository;
+
+import com.solution.keypr.domain.Identifiable;
+
+/**
+ * @author RAM
+ *
+ */
+public abstract class DataRep implements Identifiable {
+
+	/* (non-Javadoc)
+	 * @see org.springframework.hateoas.Identifiable#getId()
+	 */
+	@Override
+	public Long getId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.solution.keypr.domain.Identifiable#setId(java.lang.Long)
+	 */
+	@Override
+	public void setId(Long rid) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

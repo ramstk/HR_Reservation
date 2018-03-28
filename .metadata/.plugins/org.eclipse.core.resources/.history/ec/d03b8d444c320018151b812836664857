@@ -1,0 +1,104 @@
+package com.solution.keypr.domain;
+
+import java.util.Date;
+
+/**
+ * @author RAM
+ *
+ */
+
+public class Reservation implements Identifiable {
+//	public enum status {
+//		Future_Reservation, Checked_In, Checked_Out
+//	}
+	private Long rid;
+	private String gFullName;
+	//private String Rstatus;
+	private Date checkinDate;
+	private Date checkoutDate;
+	
+	
+
+	@Override
+	public Long getId() {
+		
+		return rid;
+	}
+
+	@Override
+	public void setId(Long rid) {
+		
+		this.rid = rid;
+
+	}
+
+	public String getgFullName() {
+		return gFullName;
+	}
+
+	public void setgFullName(String gFullName) {
+		this.gFullName = gFullName;
+	}
+
+	/**
+	 * @return the checkinDate
+	 */
+	public  Date getCheckinDate() {
+		return checkinDate;
+	}
+
+	/**
+	 * @param checkinDate the checkinDate to set
+	 */
+	public void setCheckinDate(Date checkinDate) {
+		this.checkinDate = checkinDate;
+	}
+
+	/**
+	 * @return the checkoutDate
+	 */
+	public Date getCheckoutDate() {
+		return checkoutDate;
+	}
+
+	/**
+	 * @param checkoutDate the checkoutDate to set
+	 */
+	public void setCheckoutDate(Date checkoutDate) {
+		this.checkoutDate = checkoutDate;
+	}
+	
+	public void setRStatus(String Rstatus) {
+		this.Status = Rstatus;
+	}
+	
+	public void markFuture() {
+		setRStatus("Future");
+	}
+	
+	public void markCheckedOut() {
+		setRStatus("CheckedOut");
+	}
+	public void markCheckedIn() {
+		setRStatus("CheckedIn");
+	}
+	
+	public String Rstatus() {
+		return Rstatus;
+	}
+//	/**
+//	 * @return the rstatus
+//	 */
+//	public String getRstatus() {
+//		return Rstatus;
+//	}
+//
+//	/**
+//	 * @param rstatus the rstatus to set
+//	 */
+//	public void setRstatus(String rstatus) {
+//		Rstatus = rstatus;
+//	}
+	
+
+}

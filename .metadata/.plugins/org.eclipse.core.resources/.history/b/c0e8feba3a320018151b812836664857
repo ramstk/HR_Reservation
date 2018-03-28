@@ -1,0 +1,14 @@
+/**
+ * Presentation layer
+ */
+package com.solution.keypr.resource;
+
+import org.springframework.hateoas.ResourceSupport;
+
+/**
+ * @author RAM
+ *
+ */
+public class ReservationResource extends ResourceSupport{
+
+}

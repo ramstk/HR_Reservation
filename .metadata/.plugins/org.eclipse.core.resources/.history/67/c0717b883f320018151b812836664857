@@ -1,0 +1,5 @@
+package com.solution.keypr.resource;
+
+public abstract class ResourceAssembler {
+
+}

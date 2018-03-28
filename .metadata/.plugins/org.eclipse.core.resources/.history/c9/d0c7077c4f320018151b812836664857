@@ -1,0 +1,79 @@
+/**
+ * 
+ */
+package com.solution.keypr.controller;
+
+import java.util.Collection;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.ExposesResourceFor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.solution.keypr.domain.Reservation;
+import com.solution.keypr.repository.ReservationRepo;
+import com.solution.keypr.resource.ReservationResource;
+import com.solution.keypr.resource.ReservationResourceAssembler;
+
+
+/**
+ * @author RAM
+ *
+ */
+@CrossOrigin(origins = "*")
+@RestController
+@ExposesResourceFor(Reservation.class)
+@RequestMapping(value = "/reservation", produces = "application/json")
+public class ReservationController {
+	@Autowired
+	private ReservationRepo repository;
+	
+	@Autowired
+	private ReservationResourceAssembler assembler;
+
+	@RequestMapping(method = RequestMethod.GET)
+	public ResponseEntity<Collection<ReservationResource>> findAllReservations() {
+		List<Reservation> reservations = repository.findAll();
+		return new ResponseEntity<>(assembler.toResourceCollection(reservations), HttpStatus.OK);
+	}
+	
+	@RequestMapping(method = RequestMethod.POST, consumes = "application/json")
+	public ResponseEntity<ReservationResource> createOrder(@RequestBody Reservation reservation) {
+		Reservation createdReservation = repository.create(reservation);
+		return new ResponseEntity<>(assembler.toResource(createdReservation), HttpStatus.CREATED);
+	}
+	
+	@RequestMapping(value = "/{rid}", method = RequestMethod.GET)
+	public ResponseEntity<ReservationResource> findReservationById(@PathVariable Long rid) {
+		Optional<Reservation> reservation = repository.findById(rid);
+
+		if (reservation.isPresent()) {
+			return new ResponseEntity<>(assembler.toResource(reservation.get()), HttpStatus.OK);
+		}
+		else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	
+	@RequestMapping(value = "/{rid}", method = RequestMethod.PUT, consumes = "application/json")
+	public ResponseEntity<ReservationResource> updatereservation(@PathVariable Long rid, @RequestBody Reservation updatedReservation) {
+		boolean wasUpdated = repository.update(rid, updatedReservation);
+		
+		if (wasUpdated) {
+			return findReservationById(rid);
+		}
+		else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+
+}

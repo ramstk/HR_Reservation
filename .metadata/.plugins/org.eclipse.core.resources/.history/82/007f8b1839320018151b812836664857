@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package com.solution.keypr.repository;
+
+/**
+ * @author RAM
+ *
+ */
+public class ReservationRepo extends DataRepository <Reservation> {
+
+}

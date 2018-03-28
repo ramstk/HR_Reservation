@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="OrderAcceptanceTests" project="order-rest-backend" tests="14" started="14" failures="0" errors="0" ignored="0">
+  <testsuite name="com.dzone.albanoj2.example.rest.test.acceptance.OrderAcceptanceTests" time="0.055">
+    <testsuite name="Feature: User can successfully get, create, delete, and update orders" time="0.055">
+      <testsuite name="Scenario: User gets a created order" time="0.0">
+        <testcase name="When the user creates an order" classname="Scenario: User gets a created order" time="0.0"/>
+        <testcase name="And the order is successfully created" classname="Scenario: User gets a created order" time="0.0"/>
+        <testcase name="And the user gets the created order" classname="Scenario: User gets a created order" time="0.0"/>
+        <testcase name="Then the user receives status code of 200" classname="Scenario: User gets a created order" time="0.0"/>
+        <testcase name="And the retrieved order is correct" classname="Scenario: User gets a created order" time="0.0"/>
+      </testsuite>
+      <testsuite name="Scenario: User gets an existing order" time="0.007">
+        <testcase name="Given an order exists" classname="Scenario: User gets an existing order" time="0.005"/>
+        <testcase name="When the user gets the created order" classname="Scenario: User gets an existing order" time="0.001"/>
+        <testcase name="Then the user receives status code of 200" classname="Scenario: User gets an existing order" time="0.0"/>
+        <testcase name="And the retrieved order is correct" classname="Scenario: User gets an existing order" time="0.001"/>
+      </testsuite>
+      <testsuite name="Scenario: User deletes a created order" time="0.014">
+        <testcase name="Given an order exists" classname="Scenario: User deletes a created order" time="0.006"/>
+        <testcase name="And the user deletes the created order" classname="Scenario: User deletes a created order" time="0.001"/>
+        <testcase name="And the user receives status code of 204" classname="Scenario: User deletes a created order" time="0.003"/>
+        <testcase name="When the user gets the created order" classname="Scenario: User deletes a created order" time="0.0"/>
+        <testcase name="Then the user receives status code of 404" classname="Scenario: User deletes a created order" time="0.004"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testrun>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="OrderRepositoryTest" project="order-rest-backend" tests="14" started="14" failures="0" errors="0" ignored="0">
+  <testsuite name="com.dzone.albanoj2.example.rest.test.unit.repository.OrderRepositoryTest" time="0.012">
+    <testcase name="testFindAllWithTwoExistingOrderEnsureSecondOrderIsCorrect" classname="com.dzone.albanoj2.example.rest.test.unit.repository.OrderRepositoryTest" time="0.0"/>
+    <testcase name="testFindAllWithNoExistingOrdersEnsureNoOrdersFound" classname="com.dzone.albanoj2.example.rest.test.unit.repository.OrderRepositoryTest" time="0.0"/>
+    <testcase name="testFindExistingOrderEnsureOptionalIsPresent" classname="com.dzone.albanoj2.example.rest.test.unit.repository.OrderRepositoryTest" time="0.0"/>
+    <testcase name="testFindAllWithTwoExistingOrdersEnsureTwoOrdersFound" classname="com.dzone.albanoj2.example.rest.test.unit.repository.OrderRepositoryTest" time="0.0"/>
+    <testcase name="testDeleteExistingOrderEnsureOrderDeleted" classname="com.dzone.albanoj2.example.rest.test.unit.repository.OrderRepositoryTest" time="0.0"/>
+    <testcase name="testUpdateExistingOrderWithNullUpdatedOrderEnsureNoUpdateMade" classname="com.dzone.albanoj2.example.rest.test.unit.repository.OrderRepositoryTest" time="0.001"/>
+    <testcase name="testDeleteNonexistentOrderEnsureNoOrderDeleted" classname="com.dzone.albanoj2.example.rest.test.unit.repository.OrderRepositoryTest" time="0.0"/>
+    <testcase name="testFindAllWithOneExistingOrdersEnsureOneOrdersFound" classname="com.dzone.albanoj2.example.rest.test.unit.repository.OrderRepositoryTest" time="0.0"/>
+    <testcase name="testUpdateNonexistentOrderEnsureNoUpdateMade" classname="com.dzone.albanoj2.example.rest.test.unit.repository.OrderRepositoryTest" time="0.0"/>
+    <testcase name="testFindExistingOrderEnsureCorrectOrderValues" classname="com.dzone.albanoj2.example.rest.test.unit.repository.OrderRepositoryTest" time="0.0"/>
+    <testcase name="testUpdateExistingOrderEnsureOriginalOrderIsUpdated" classname="com.dzone.albanoj2.example.rest.test.unit.repository.OrderRepositoryTest" time="0.0"/>
+    <testcase name="testUpdateExistingOrderEnsureUpdateMade" classname="com.dzone.albanoj2.example.rest.test.unit.repository.OrderRepositoryTest" time="0.0"/>
+    <testcase name="testFindAllWithTwoExistingOrderEnsureFirstOrderIsCorrect" classname="com.dzone.albanoj2.example.rest.test.unit.repository.OrderRepositoryTest" time="0.0"/>
+    <testcase name="testFindNonexistentOrderEnsureOptionalIsNotPresent" classname="com.dzone.albanoj2.example.rest.test.unit.repository.OrderRepositoryTest" time="0.011"/>
+  </testsuite>
+</testrun>

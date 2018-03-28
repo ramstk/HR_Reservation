@@ -1,0 +1,150 @@
+package com.solution.keypr.test.unit;
+
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import com.solution.keypr.domain.Reservation;
+import com.solution.keypr.repository.ReservationRepo;
+
+import static com.solution.keypr.test.util.ReservationTestUtil.*;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class ReservationRepositoryTest {
+	private static final long NONEXISTENT_ID = 9999;
+
+	@Autowired
+	private ReservationRepo repository;
+	
+	@Before
+	public void setUp() {
+		repository.clear();
+	}
+	
+	@Test
+	public void testFindNonexistentReservationEnsureOptionalIsNotPresent() throws Exception {
+		assertNoExistingReservations();
+		Optional<Reservation> reserve = repository.findById(NONEXISTENT_ID);
+		Assert.assertFalse(reserve.isPresent());
+	}
+
+	private void assertNoExistingReservations() {
+		assertExistingReservationCountIs(0);
+	}
+	
+	private void assertExistingReservationCountIs(int count) {
+		Assert.assertEquals(count, repository.getCount());
+	}
+	
+	@Test
+	public void testFindExistingReservationEnsureOptionalIsPresent() throws Exception {
+		Reservation injectedReservation = injectReservation();
+		Optional<Reservation> foundReservation = repository.findById(injectedReservation.getId());
+		Assert.assertTrue(foundReservation.isPresent());
+	}
+	
+	private Reservation injectReservation() throws ParseException {
+		Reservation createdReservation = repository.create(generateTestReservation());
+		return createdReservation;
+	}
+	
+	@Test
+	public void testFindExistingReservationEnsureCorrectReservationValues() throws Exception {
+		Reservation injectedReservation = injectReservation();
+		Optional<Reservation> foundReservation = repository.findById(injectedReservation.getId());
+		assertReservationsMatch(injectedReservation, foundReservation.get());
+	}
+	
+	private static void assertReservationsMatch(Reservation expected, Reservation actual) {
+		Assert.assertEquals(expected.getId(), actual.getId());
+		assertAllButIdsMatchBetweenReservations(expected, actual);
+	}
+	
+	@Test
+	public void testFindAllWithNoExistingReservationsEnsureNoReservationsFound() throws Exception {
+		assertFindAllIsCorrectWithReservationCount(0);
+	}
+	
+	private void assertFindAllIsCorrectWithReservationCount(int count) throws ParseException {
+		injectGivenNumberOfReservations(count);
+		assertExistingReservationCountIs(count);
+		List<Reservation> reservationsFound = repository.findAll();
+		Assert.assertEquals(count, reservationsFound.size());
+	}
+	
+	private List<Reservation> injectGivenNumberOfReservations(int count) throws ParseException {
+		
+		List<Reservation> injectedReservations = new ArrayList<>();
+		
+		for (int i = 0; i < count; i++) {
+			injectedReservations.add(injectReservation());
+		}
+		
+		return injectedReservations;
+	}
+	
+	@Test
+	public void testFindAllWithOneExistingReservationsEnsureOneReservationsFound() throws Exception {
+		assertFindAllIsCorrectWithReservationCount(1);
+	}
+	
+	@Test
+	public void testFindAllWithTwoExistingReservationsEnsureTwoReservationsFound() throws Exception {
+		assertFindAllIsCorrectWithReservationCount(2);
+	}
+	
+	@Test
+	public void testFindAllWithTwoExistingReservationEnsureFirstReservationIsCorrect() throws Exception {
+		List<Reservation> injectedReservations = injectGivenNumberOfReservations(2);
+		List<Reservation> reservationsFound = repository.findAll();
+		assertReservationsMatch(injectedReservations.get(0), reservationsFound.get(0));
+	}
+
+	@Test
+	public void testFindAllWithTwoExistingReservationEnsureSecondReservationIsCorrect() throws Exception {
+		List<Reservation> injectedReservations = injectGivenNumberOfReservations(2);
+		List<Reservation> reservationsFound = repository.findAll();
+		assertReservationsMatch(injectedReservations.get(1), reservationsFound.get(1));
+	}
+	
+	
+	@Test
+	public void testUpdateNonexistentReservationEnsureNoUpdateMade() throws Exception {
+		assertNoExistingReservations();
+		boolean wasUpdated = repository.update(NONEXISTENT_ID, new Reservation());
+		Assert.assertFalse(wasUpdated);
+	}
+	
+//	@Test
+//	public void testUpdateExistingReservationEnsureUpdateMade() throws Exception {
+//		Reservation injectedReservation = injectReservation();
+//		boolean wasUpdated = repository.update(injectedReservation.getId(), new Reservation());
+//		Assert.assertTrue(wasUpdated);
+//	}
+	
+	@Test
+	public void testUpdateExistingReservationEnsureOriginalReservationIsUpdated() throws Exception {
+		Reservation originalReservation = injectReservation();
+		Reservation updatedReservation = generateUpdatedReservation(originalReservation);
+		repository.update(originalReservation.getId(), updatedReservation);
+		assertAllButIdsMatchBetweenReservations(updatedReservation, originalReservation);
+	}
+	
+	@Test
+	public void testUpdateExistingReservationWithNullUpdatedReservationEnsureNoUpdateMade() throws Exception {
+		Reservation injectedReservation = injectReservation();
+		boolean wasUpdated = repository.update(injectedReservation.getId(), null);
+		Assert.assertFalse(wasUpdated);
+	}
+
+}

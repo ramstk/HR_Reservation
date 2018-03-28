@@ -1,0 +1,38 @@
+/**
+ * 
+ */
+package com.solution.keypr.repository;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import com.solution.keypr.domain.Identifiable;
+
+/**
+ * @author RAM
+ *
+ */
+public abstract class DataRepository<T extends Identifiable> {
+
+	@Autowired
+	private UniIDGenerator uniIDGenerator;
+	
+	private List<T> reservations = Collections.synchronizedList(new ArrayList<>());
+
+	public T create(T reservation) {
+		reservations.add(reservation);
+		reservation.setId(uniIDGenerator.getNextId());
+		return reservation;
+	}
+	
+	public List<T> findAll(){
+	
+		return reservations;
+		
+	}
+	
+	
+	
+}

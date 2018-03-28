@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="OrderControllerTest" project="order-rest-backend" tests="19" started="19" failures="0" errors="0" ignored="0">
+  <testsuite name="com.dzone.albanoj2.example.rest.test.integration.controller.OrderControllerTest" time="0.461">
+    <testcase name="testUpdateExistingOrderEnsureOrderUpdated" classname="com.dzone.albanoj2.example.rest.test.integration.controller.OrderControllerTest" time="0.172"/>
+    <testcase name="testGetNonexistentOrderEnsureNotFoundResponse" classname="com.dzone.albanoj2.example.rest.test.integration.controller.OrderControllerTest" time="0.013"/>
+    <testcase name="testGetAllTwoOrderEnsureCorrectLinks" classname="com.dzone.albanoj2.example.rest.test.integration.controller.OrderControllerTest" time="0.089"/>
+    <testcase name="testGetAllOneOrderEnsureCorrectResponse" classname="com.dzone.albanoj2.example.rest.test.integration.controller.OrderControllerTest" time="0.013"/>
+    <testcase name="testCreateInvalidNewOrderEnsureCorrectResponse" classname="com.dzone.albanoj2.example.rest.test.integration.controller.OrderControllerTest" time="0.01"/>
+    <testcase name="testDeleteNonexistentOrderEnsureCorrectResponse" classname="com.dzone.albanoj2.example.rest.test.integration.controller.OrderControllerTest" time="0.007"/>
+    <testcase name="testDeleteExistingOrderEnsureOrderDeleted" classname="com.dzone.albanoj2.example.rest.test.integration.controller.OrderControllerTest" time="0.009"/>
+    <testcase name="testCreateNewOrderEnsureCorrectResponse" classname="com.dzone.albanoj2.example.rest.test.integration.controller.OrderControllerTest" time="0.02"/>
+    <testcase name="testCreateNewOrderMissingDataEnsureCorrectResponse" classname="com.dzone.albanoj2.example.rest.test.integration.controller.OrderControllerTest" time="0.013"/>
+    <testcase name="testGetExistingOrderEnsureCorrectLinks" classname="com.dzone.albanoj2.example.rest.test.integration.controller.OrderControllerTest" time="0.015"/>
+    <testcase name="testCreateNewOrderEnsureOrderCreated" classname="com.dzone.albanoj2.example.rest.test.integration.controller.OrderControllerTest" time="0.01"/>
+    <testcase name="testGetAllOneOrderEnsureCorrectLinks" classname="com.dzone.albanoj2.example.rest.test.integration.controller.OrderControllerTest" time="0.015"/>
+    <testcase name="testGetAllTwoOrderEnsureCorrectResponse" classname="com.dzone.albanoj2.example.rest.test.integration.controller.OrderControllerTest" time="0.015"/>
+    <testcase name="testCreateNewOrderEnsureCorrectLinks" classname="com.dzone.albanoj2.example.rest.test.integration.controller.OrderControllerTest" time="0.01"/>
+    <testcase name="testDeleteExistingOrderEnsureCorrectResponse" classname="com.dzone.albanoj2.example.rest.test.integration.controller.OrderControllerTest" time="0.009"/>
+    <testcase name="testUpdateExistingOrderEnsureCorrectResponse" classname="com.dzone.albanoj2.example.rest.test.integration.controller.OrderControllerTest" time="0.012"/>
+    <testcase name="testGetExistingOrderEnsureCorrectResponse" classname="com.dzone.albanoj2.example.rest.test.integration.controller.OrderControllerTest" time="0.011"/>
+    <testcase name="testUpdateNonexistentOrderEnsureCorrectResponse" classname="com.dzone.albanoj2.example.rest.test.integration.controller.OrderControllerTest" time="0.007"/>
+    <testcase name="testGetAllEmptyListEnsureCorrectResponse" classname="com.dzone.albanoj2.example.rest.test.integration.controller.OrderControllerTest" time="0.01"/>
+  </testsuite>
+</testrun>

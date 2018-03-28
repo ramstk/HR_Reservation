@@ -1,0 +1,23 @@
+package com.solution.keypr.domain;
+/**
+ * @author RAM
+ *
+ */
+public class Reservation implements Identifiable {
+	
+	private Long rid;
+
+	@Override
+	public Long getId() {
+		// TODO Auto-generated method stub
+		return rid;
+	}
+
+	@Override
+	public void setId(Long rid) {
+		// TODO Auto-generated method stub
+		this.rid = rid;
+
+	}
+
+}
