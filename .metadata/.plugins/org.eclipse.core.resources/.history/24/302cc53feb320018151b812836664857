@@ -1,0 +1,8 @@
+package com.solution.keypr.controller;
+
+public @interface RateLimit {
+
+	    int value();
+
+	    String key() default "";
+}

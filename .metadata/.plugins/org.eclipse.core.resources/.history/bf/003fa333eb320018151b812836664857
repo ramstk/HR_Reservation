@@ -1,0 +1,12 @@
+package com.solution.keypr.controller;
+
+import java.lang.annotation.Documented;
+import java.lang.annotation.Retention;
+import java.lang.annotation.Target;
+
+public @interface RateLimit {
+
+	    int value();
+
+	    String key() default "";
+}
