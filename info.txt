@@ -1,0 +1,47 @@
+Users/Ram/Development/apache-maven-3.5.3/bin
+
+reservation
+************************
+rid : Long
+gFullName: string
+checkinDate: date
+checkoutDate: date
+rStatus	  :  future reservation, checked-in, checked-out
+************************
+
+GET
+/reservation
+Obtains the list of all reservations currently created in the system. If the list is successfully obtained, the list of existing reservations is returned, along with an HTTP 200(OK) status.
+
+POST
+/reservation
+Creates a new reservation. This request should carry a request body that includes the data that should be associated with the newly created reservation. If the reservation is created, an HTTP 201 (Created) status is returned along with the newly created reservation in the response body.
+
+GET
+/reservation/{id}
+Obtains the reservation associated with the given ID. If no reservation exists, an HTTP 404 (Not Found) status is returned. If the reservation can be found, an HTTP 200 status is returned and the response body contains the information associated with the reservation.
+
+PUT
+/reservation/{id}
+Updates an existing reservation. If no reservation with the given ID can be found, an HTTP 404 status is returned. If an reservation exists with the given ID and the request body contains valid updates to the reservation, the reservation is updated and the updated reservation is returned in the response body, along with an HTTP 200 status.
+
+DELETE
+/order/{id}
+Deletes a reservation with the given ID. If no reservation exists, an HTTP 404 status is returned. If the reservation exists, it is deleted, and an HTTP 204 (No Content) status is returned.
+************************
+
+{
+    "gFullName": "Some sample name",
+    "checkinDate": "2018-12-12",
+    "checkoutDate": "2018-12-12"
+    
+}
+
+SimpleDateFormat ft = new SimpleDateFormat ("MM/dd/yyyy"); 
+if(date1.after(date2)){
+                System.out.println("Date1 is after Date2");
+            }
+
+            if(date1.before(date2)){
+                System.out.println("Date1 is before Date2");
+            }

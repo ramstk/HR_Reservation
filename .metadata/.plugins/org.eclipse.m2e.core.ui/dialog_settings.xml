@@ -33,6 +33,7 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="/Users/Ram/Development/KeyPR/spring-rate-limit-master"/>
 			<item value="/Users/Ram/Development/KeyPR/order-rest-backend-master"/>
 		</list>
 		<list key="projectNameTemplate">
